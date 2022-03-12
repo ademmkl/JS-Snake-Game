@@ -1,0 +1,28 @@
+<div id="snakeGameTitle" style="margin: 50px auto; width: 300px; text-align: center;">
+    <p>Snake Game</p>
+    <small>From Selman Kahya Youtube Lessons</small>
+</div>
+
+<canvas id="snakeGameCanvas" width="600" height="600" style="display: block; margin:0 auto 0 auto; background-color: #000;"></canvas>
+
+<script>
+    class SnakeGame{
+        constructor(){
+            this.canvas= document.getElementById("snakeGameCanvas");
+            this.ctx= this.canvas.getContext("2d");
+            this.addEventListener("keydown",this.onKeyPress.bind(this));
+        }
+
+        init(){
+            this.positionX = this.positionY= 10;
+            this.appleX = this.appleY= 5;
+            this.tailSize= 5;
+            this.tail =[];
+            this.velocityX = this.velocityY = 0;
+            this.gridSize = this.tileCount;
+        }
+    }
+
+    const mySnakeGame= new SnakeGame();
+    window.onload = () => mySnakeGame.init();
+</script>
