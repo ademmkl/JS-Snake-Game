@@ -7,13 +7,14 @@ class SnakeGame{
 
     init(){
         this.gridSize = this.tileCount = 20;
-        this.positionX = this.positionY = Math.floor(Math.random()*this.gridSize);
-        this.appleX = this.appleY= 0;
+        this.positionX = Math.floor(Math.random()*30);
+        this.positionY = Math.floor(Math.random()*30);
+        this.appleX = this.appleY = Math.floor(Math.random()*30);
         this.tailSize= 5;
         this.trail = [];
         this.velocityX = 0
         this.velocityY = -1;
-        this.time = setInterval(this.loop, 1000/15);
+        this.time = setInterval(this.loop, 1000/10);
         this.context.fillStyle = "#000";
         this.context.fillRect(0,0,this.canvas.width,this.canvas.height);
 
@@ -61,7 +62,7 @@ class SnakeGame{
         });
 
         if (this.positionX == this.appleX && this.positionY == this.appleY){
-            this.appleX = this.appleY= Math.floor(Math.random()*this.gridSize);
+            this.appleX = this.appleY= Math.floor(Math.random()*30);
             this.tailSize++;
         }
 
